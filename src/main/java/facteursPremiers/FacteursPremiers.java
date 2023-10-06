@@ -1,21 +1,27 @@
 package facteursPremiers;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 public class FacteursPremiers {
-    public Set<Integer> generate(int n){
-        Set<Integer> facteursPremiers = new HashSet<>();
-        int diviseur = 2;
 
-        while (n > 1) {
-            while (n % diviseur == 0) {
-                facteursPremiers.add(diviseur);
-                n /= diviseur;
+    public List<Integer> generate (int n){
+            if (n <= 1) {
+                throw new IllegalArgumentException(" Le nombre doit être supérieur à1");
             }
-            diviseur++;
-        }
-        return facteursPremiers;
+            List<Integer> facteursPremiers = new ArrayList<>();
+            int diviseur = 2;
 
+            while (n > 1) {
+                while (n % diviseur == 0) {
+                    facteursPremiers.add(diviseur);
+                    n /= diviseur;
+                }
+                diviseur++;
+            }
+
+            return facteursPremiers;
     }
 }
